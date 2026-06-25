@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>情绪织体 - Emotion Texture</title>
+    <!-- Prevent cross-origin/sandbox script errors from breaking the environment -->
+    <script>
+      window.onerror = function(message, source, lineno, colno, error) {
+        console.warn('Global onerror captured and handled:', message, source, lineno);
+        return true;
+      };
+      window.addEventListener('error', function(e) {
+        console.warn('Global error captured and handled:', e.message, e.filename, e.lineno);
+        e.preventDefault();
+        e.stopPropagation();
+        return true;
+      }, true);
+      window.addEventListener('unhandledrejection', function(e) {
+        console.warn('Global unhandled promise rejection captured and handled:', e.reason);
+        e.preventDefault();
+        e.stopPropagation();
+      }, true);
+    </script>
+    <!-- CDN Dependencies will be loaded dynamically in WorkspaceView to prevent startup crashes -->
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+

@@ -1,0 +1,10 @@
+{
+  "name": "Remix: 情绪织体 Emotion Texture(适配手机）",
+  "description": "实时摄像头手势控制的音乐与参数化建筑艺术生成器",
+  "requestFramePermissions": [
+    "camera"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

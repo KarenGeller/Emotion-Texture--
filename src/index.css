@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+/* Custom styles for high quality aesthetics */
+body {
+  background-color: #05050a;
+  color: #f3f4f6;
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+/* Glassmorphism utility */
+.glass-panel {
+  background: rgba(10, 10, 20, 0.65);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-panel-light {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Custom animated glow borders */
+@keyframes borderGlow {
+  0%, 100% { border-color: rgba(255, 255, 255, 0.1); }
+  50% { border-color: rgba(255, 255, 255, 0.3); }
+}
+
+.glow-border {
+  animation: borderGlow 4s infinite ease-in-out;
+}
+
+/* ==========================================================================
+   Mobile UI Adapters (iPhone X 375x812 Specific Layouts)
+   ========================================================================== */
+
+/* 情绪选择页 */
+.mobile-selector {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  padding: 20px;
+}
+
+.mobile-selector button {
+  height: 120px !important;
+  border-radius: 16px !important;
+  font-size: 16px !important;
+  border: none !important;
+  color: white !important;
+  position: relative !important;
+  overflow: hidden !important;
+  padding: 12px !important;
+}
+
+/* 四大维度面板 - 移动端折叠为底部横条 */
+.mobile-dimensions {
+  position: fixed !important;
+  bottom: 95px !important; /* 在录制按钮上方，避开iPhone底部操作栏 */
+  left: 0 !important;
+  right: 0 !important;
+  height: 55px !important;
+  display: flex !important;
+  justify-content: space-around !important;
+  background: rgba(10, 10, 20, 0.85) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-radius: 20px 20px 0 0 !important;
+  padding: 8px 0 !important;
+}
+
+.mobile-dimensions .dim-item {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  font-size: 10px !important;
+  color: rgba(255, 255, 255, 0.6) !important;
+  flex: 1 !important;
+}
+
+.mobile-dimensions .dim-item.active {
+  color: white !important;
+}
+
+.mobile-dimensions .dim-icon {
+  font-size: 18px !important;
+  margin-bottom: 2px !important;
+}
+
+/* 手势小框 - 移动端可拖动 */
+.mobile-camera {
+  position: fixed !important;
+  top: 10px !important;
+  right: 10px !important;
+  width: 80px !important;
+  height: 60px !important;
+  border-radius: 8px !important;
+  overflow: hidden !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  touch-action: none !important; /* 允许拖动 */
+  background: black !important;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.8) !important;
+}
+
+/* 录制按钮 - 移动端大按钮 */
+.mobile-record-btn {
+  position: fixed !important;
+  bottom: 24px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  width: 60px !important;
+  height: 60px !important;
+  border-radius: 30px !important;
+  background: #ef4444 !important;
+  border: 3px solid white !important;
+  box-shadow: 0 0 20px rgba(239, 68, 68, 0.5) !important;
+  z-index: 10000 !important;
+}
+
+/* 调试面板 - 移动端隐藏，按D键显示 */
+.mobile-debug {
+  display: none !important;
+}
+
